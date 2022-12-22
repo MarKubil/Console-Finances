@@ -135,19 +135,15 @@ for (var g = 0; g < monthsChange.length; g++) {
 //The greatest increase in profits (date and amount) over the entire period.
 //Find the biggest number in monthsChange;
 var greatestIncreaseNum = Math.max.apply(null, monthsChange);
-//Find the index of greatest number and add one to it;
-var increaseIndex = monthsChange.indexOf(greatestIncreaseNum) + 1;
 //Find the month of greatest increase month;
-var greatestIncreaseMonth = finances[increaseIndex];
+var greatestIncreaseMonth = finances[monthsChange.indexOf(greatestIncreaseNum) + 1];
 
 
 //The greatest decrease in losses (date and amount) over the entire period.
 //Find the lowest number in monthsChange;
 var greatestDecreaseNum = Math.min.apply(null, monthsChange);
-//Find the index of lowest number and add one to it;
-var decreaseIndex = monthsChange.indexOf(greatestDecreaseNum) + 1;
 // Find the month of greatest decrease month;
-var greatestDecreaseMonth = finances[decreaseIndex];
+var greatestDecreaseMonth = finances[monthsChange.indexOf(greatestDecreaseNum) + 1];
 
 
 
