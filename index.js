@@ -91,18 +91,14 @@ var finances = [
 var totalMonths = finances.length;
 
 //The net total amount of Profit/Losses over the entire period.
-var totalProfit;
+var totalProfit = 0;
 
 // monthsTotal shows every months value.
 var monthsTotal = [];
 
 for (var i = 0; i < finances.length; i++) {
 
-    if (i === 0) {
-        totalProfit = finances[0][1]; 
-    } else {
-        totalProfit = finances[i][1] + totalProfit;
-    }
+    totalProfit = finances[i][1] + totalProfit;
 
     monthsTotal.push(finances[i][1]);
 
@@ -110,28 +106,48 @@ for (var i = 0; i < finances.length; i++) {
 
 // The average of the changes in Profit/Losses over the entire period.
 
+// Every month change
 var monthsChange = [];
-var averageChange;
-console.log(monthsChange);
 
+var averageChange = 0;
+
+
+// This code takes every month B - A = Change and push it to the monthsChange variable.
 for (var j = 0; j < monthsTotal.length - 1; j++) {
     if (j === 0) {
         monthsChange.push
     }
-     monthsChange.push(monthsTotal[j] + monthsTotal[j+1]);
+     monthsChange.push(monthsTotal[j+1] - monthsTotal[j]);
 };
 
+
+// This code takes every element in monthsChange and add up then divides by the number of months.
+// averageChange result.
 for (var g = 0; g < monthsChange.length; g++) {
-    if (g === 0) {
-        averageChange = monthsChange[0];
-    } else if (g === monthsChange.length - 1){
-        averageChange = averageChange / monthsChange.length;
-    } else {
-        averageChange = averageChange + monthsChange[g];
-    }
+   averageChange = averageChange + monthsChange[g];
+   if (g === monthsChange.length - 1) {
+    averageChange = averageChange / monthsChange.length;
+   }
 }
 
-console.log(monthsChange)
+
+
+//The greatest increase in profits (date and amount) over the entire period.
+//Find the biggest number in monthsChange;
+var greatestIncreaseNum = Math.max.apply(null, monthsChange);
+//Find the index of greatest number and add one to it;
+var increaseIndex = monthsChange.indexOf(greatestIncreaseNum) + 1;
+//Find the month of greatest increase month;
+var greatestIncreaseMonth = finances[increaseIndex];
+
+
+//The greatest decrease in losses (date and amount) over the entire period.
+//Find the lowest number in monthsChange;
+var greatestDecreaseNum = Math.min.apply(null, monthsChange);
+//Find the index of lowest number and add one to it;
+var decreaseIndex = monthsChange.indexOf(greatestDecreaseNum) + 1;
+// Find the month of greatest decrease month;
+var greatestDecreaseMonth = finances[decreaseIndex];
 
 
 
@@ -142,19 +158,6 @@ console.log("------------------------");
 console.log(`Total Months: ${totalMonths}`);
 console.log(`Total: $${totalProfit}`);
 console.log(`Average Change: $${averageChange.toFixed(2)}`);
-console.log(`Greatest Increase in Profits: `);
-console.log(`Greatest Decrease in Profits: `);
+console.log(`Greatest Increase in Profits: ${greatestIncreaseMonth[0]} ($${greatestIncreaseNum})`);
+console.log(`Greatest Decrease in Profits: ${greatestDecreaseMonth[0]} ($${greatestDecreaseNum})`);
 
-
-
-//the total amaount of profit losses over entire period probably a loop added all togethar.
-
-//calculate each change by subracting the previous month from this month
-// maybe pu all the changes into array? using .push() ?
-
-// the greatest increase in profits (date and amount) over the entire period.
-// start with 0
-// check the last increase. if it's bigger than 0, keep track of the new biggest one.
-// in a loop.
-
-// The greatest decrease in losses (data and amount) over the entire period.
