@@ -13,10 +13,10 @@ N/A
 
 
 ## Usage
-This code will calculate number of Months, total profit/loss of the months, average change, greatest increase/decrease of entire period.
+This code will calculate a number of Months, total profit/loss of the months, average change, greatest increase/decrease of entire period.
 
 
-Link to live page: [Click here](https://markubil.github.io/Bootstrap-Portfolio/)
+Link to live page: [Click here](https://markubil.github.io/Console-Finances/)
 
 
 ## Credits
@@ -35,6 +35,6 @@ N/A
 
 ## Badges
 
-![badmath]()
+![badmath](https://img.shields.io/badge/JavaScript-93.4%25-green)
 
-![badmath]()
+![badmath](https://img.shields.io/badge/HTML-6.6%25-yellow)
